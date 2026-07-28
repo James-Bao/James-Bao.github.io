@@ -1,0 +1,53 @@
+/* Better typography */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.8;
+}
+
+.post-content {
+  font-size: 1.05rem;
+}
+
+.post-content h2 {
+  margin-top: 2.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Wider content area */
+.main {
+  max-width: 800px;
+}
+
+/* Nicer code blocks */
+.post-content pre {
+  border-radius: 8px;
+  padding: 1.2rem;
+}
+
+.post-content code {
+  font-size: 0.9em;
+}
+
+/* Smoother post list */
+.post-entry {
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.post-entry:hover {
+  transform: translateY(-2px);
+}
+
+/* Table of contents styling */
+.toc {
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+}
+
+/* Better image handling */
+.post-content img {
+  border-radius: 6px;
+  margin: 1.5rem auto;
+  display: block;
+}

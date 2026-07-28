@@ -7,9 +7,11 @@ paginate: 10
 
 params:
   env: production
-  description: "Personal blog"
+  description: "Personal blog — thoughts on engineering, AI, and more."
   author: "James Bao"
+  math: true
   defaultTheme: auto
+  disableThemeToggle: false
   ShowReadingTime: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
@@ -17,17 +19,23 @@ params:
   ShowToc: true
   TocOpen: false
   ShowShareButtons: false
+  ShowWordCount: true
 
   homeInfoParams:
     Title: "Hi, I'm James Bao"
-    Content: "Welcome to my blog."
+    Content: "Welcome to my blog — I write about engineering, AI, and things I find interesting."
 
   socialIcons:
     - name: github
       url: "https://github.com/James-Bao"
 
+  cover:
+    linkFullImages: true
+    responsiveImages: true
+
   assets:
     favicon: "/favicon.ico"
+    disableFingerprinting: false
 
 menu:
   main:
