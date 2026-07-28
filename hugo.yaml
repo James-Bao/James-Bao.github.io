@@ -1,0 +1,71 @@
+baseURL: "https://james-bao.github.io/"
+languageCode: en-us
+title: "James Bao"
+theme: PaperMod
+
+paginate: 10
+
+params:
+  env: production
+  description: "Personal blog"
+  author: "James Bao"
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowToc: true
+  TocOpen: false
+  ShowShareButtons: false
+
+  homeInfoParams:
+    Title: "Hi, I'm James Bao"
+    Content: "Welcome to my blog."
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/James-Bao"
+
+  assets:
+    favicon: "/favicon.ico"
+
+menu:
+  main:
+    - identifier: posts
+      name: Posts
+      url: /posts/
+      weight: 1
+    - identifier: archive
+      name: Archive
+      url: /archives/
+      weight: 2
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 3
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 4
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: true
+    lineNos: false
+    style: monokai
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
