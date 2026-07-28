@@ -1,0 +1,15 @@
+title: James Bao
+description: Personal blog
+url: "https://james-bao.github.io"
+baseurl: ""
+
+theme: minima
+
+permalink: /:year/:month/:day/:title/
+
+header_pages:
+  - about.md
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
