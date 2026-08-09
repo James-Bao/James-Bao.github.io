@@ -4,6 +4,7 @@ date: 2023-08-15
 draft: false
 tags: ["triton", "cuda", "gpu", "kernel", "deep-learning", "fused-kernels", "softmax"]
 summary: "Why kernel fusion matters for GPU performance, and how to implement fused operations in Triton — covering a fused bias+ReLU and a full row-wise softmax kernel."
+math: true
 ---
 
 In [Part 2](/posts/triton-tutorial-part2) we saw that Triton matches PyTorch on simple vector addition. So why bother writing custom kernels at all?

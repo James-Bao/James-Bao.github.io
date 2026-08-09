@@ -4,6 +4,7 @@ date: 2023-08-01
 draft: false
 tags: ["triton", "cuda", "gpu", "kernel", "deep-learning"]
 summary: "An introduction to writing GPU kernels in Triton using vector addition — the Hello World of GPU programming. Covers the core programming model, how it compares to CUDA, and the pattern every Triton kernel follows."
+math: true
 ---
 
 If you've ever wanted to write custom GPU kernels without diving deep into CUDA C++, [Triton](https://github.com/openai/triton) is the answer. Developed by OpenAI, Triton lets you write GPU kernels in Python — and it's what powers many of the custom attention and matmul kernels in production ML systems today.

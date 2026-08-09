@@ -4,6 +4,7 @@ date: 2023-08-08
 draft: false
 tags: ["triton", "cuda", "gpu", "kernel", "deep-learning", "autotuning", "benchmarking"]
 summary: "How to use Triton's built-in autotuner to find optimal kernel configurations, and how to benchmark Triton kernels against PyTorch using triton.testing.Benchmark."
+math: true
 ---
 
 In [Part 1](/posts/triton-tutorial-part1) we wrote a correct vector addition kernel with a hardcoded `BLOCK_SIZE=1024`. But how do we know 1024 is optimal? Different GPUs, different data sizes, and different memory access patterns all affect the best choice.
