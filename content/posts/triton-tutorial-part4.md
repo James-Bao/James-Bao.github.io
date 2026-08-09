@@ -16,9 +16,11 @@ This is the payoff. In Parts [1](/posts/triton-tutorial-part1), [2](/posts/trito
 Standard attention computes:
 
 
+<div>
 $$
 O = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}} + M\right)V
 $$
+</div>
 
 
 where $M$ is the causal mask. The naive implementation materializes the full $N \times N$ attention matrix in GPU global memory. For `N=8192` and `float32`, that's `8192² × 4 bytes = 256 MB` — per head, per layer, per batch item. It adds up fast.
@@ -52,6 +54,7 @@ The standard softmax requires two passes: find max, then normalize. For tiled at
 Given previous state $(m_{\text{prev}}, l_{\text{prev}}, \text{acc}_{\text{prev}})$ and a new tile of scores $s$:
 
 
+<div>
 $$
 m_{\text{new}} = \max(m_{\text{prev}}, \max(s))
 $$
@@ -63,6 +66,7 @@ $$
 $$
 \text{acc}_{\text{new}} = e^{m_{\text{prev}} - m_{\text{new}}} \cdot \text{acc}_{\text{prev}} + e^{s - m_{\text{new}}} \cdot V_{\text{tile}}
 $$
+</div>
 
 
 At the end, normalize: $O = \text{acc} / l$.
