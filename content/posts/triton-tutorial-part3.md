@@ -1,6 +1,6 @@
 ---
 title: "Learning Triton Part 3: Fused Kernels"
-date: 2023-10-01
+date: 2023-08-15
 draft: false
 tags: ["triton", "cuda", "gpu", "kernel", "deep-learning", "fused-kernels", "softmax"]
 summary: "Why kernel fusion matters for GPU performance, and how to implement fused operations in Triton — covering a fused bias+ReLU and a full row-wise softmax kernel."

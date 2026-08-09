@@ -1,6 +1,6 @@
 ---
 title: "Learning Triton Part 4: Custom Attention Kernel"
-date: 2023-11-01
+date: 2023-08-22
 draft: false
 tags: ["triton", "cuda", "gpu", "kernel", "deep-learning", "attention", "flash-attention", "transformers"]
 math: true

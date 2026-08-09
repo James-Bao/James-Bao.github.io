@@ -1,6 +1,6 @@
 ---
 title: "Learning Triton Part 2: Autotuning and Benchmarking"
-date: 2023-09-01
+date: 2023-08-08
 draft: false
 tags: ["triton", "cuda", "gpu", "kernel", "deep-learning", "autotuning", "benchmarking"]
 summary: "How to use Triton's built-in autotuner to find optimal kernel configurations, and how to benchmark Triton kernels against PyTorch using triton.testing.Benchmark."
