@@ -83,7 +83,11 @@ def fused_bias_relu(x: torch.Tensor, bias: torch.Tensor) -> torch.Tensor:
 
 Softmax is a more interesting fusion challenge. For a 2D tensor of shape `(M, N)`, we compute for each row:
 
-$$\text{softmax}(x)_i = \frac{e^{x_i - \max(x)}}{\sum_j e^{x_j - \max(x)}}$$
+
+$$
+\text{softmax}(x)_i = \frac{e^{x_i - \max(x)}}{\sum_j e^{x_j - \max(x)}}
+$$
+
 
 The numerically stable version requires **three passes** over the row: find max, compute exp, normalize. In Triton, a single program handles one full row — all three passes happen in registers (or shared memory for large rows), with just one read and one write of global memory.
 
