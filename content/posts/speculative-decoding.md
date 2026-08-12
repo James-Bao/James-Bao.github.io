@@ -13,7 +13,7 @@ Autoregressive generation is memory-bandwidth-bound at small batch sizes — the
 
 ## 1. Vanilla Speculative Decoding
 
-*Leviathan et al., 2023; Chen et al., 2023*
+*[Leviathan et al., 2023](https://arxiv.org/abs/2211.17192); [Chen et al., 2023](https://arxiv.org/abs/2302.01318)*
 
 The foundational algorithm. Two papers independently proposed the same idea.
 
@@ -35,7 +35,7 @@ The foundational algorithm. Two papers independently proposed the same idea.
 
 ## 2. Medusa
 
-*Cai et al., 2024*
+*[Cai et al., 2024](https://arxiv.org/abs/2401.10774)*
 
 Eliminates the separate draft model entirely by adding **multiple decoding heads** to the target model itself.
 
@@ -59,7 +59,7 @@ Eliminates the separate draft model entirely by adding **multiple decoding heads
 
 ## 3. EAGLE & EAGLE-2
 
-*Li et al., 2024*
+*Li et al., 2024 ([EAGLE](https://arxiv.org/abs/2401.15077); [EAGLE-2](https://arxiv.org/abs/2406.16858))*
 
 **Insight:** Predicting at the *feature level* (hidden states) is easier than at the token level.
 
@@ -77,7 +77,7 @@ Eliminates the separate draft model entirely by adding **multiple decoding heads
 
 ## 4. EAGLE-3
 
-*2025*
+*[Li et al., 2025](https://arxiv.org/abs/2503.01840)*
 
 **Key departure:** Abandons feature prediction in favor of **direct token prediction** with multi-layer feature fusion.
 
@@ -87,7 +87,7 @@ EAGLE-1/2 reused top-layer features for autoregression, but this created a scali
 
 ## 5. Multi-Token Prediction (MTP)
 
-*Meta (Gloeckle et al., 2024); DeepSeek-V3 variant (Dec 2024)*
+*Meta ([Gloeckle et al., 2024](https://arxiv.org/abs/2404.19737)); [DeepSeek-V3 variant (Dec 2024)](https://arxiv.org/abs/2412.19437)*
 
 MTP was originally introduced by **Meta** as a training objective: train $D$ independent parallel heads, each predicting a different future token position. The primary motivation was improved representations and training efficiency — speculative decoding was a bonus.
 
@@ -106,7 +106,7 @@ MTP was originally introduced by **Meta** as a training objective: train $D$ ind
 
 ## 6. Lookahead Decoding
 
-*Fu et al., 2024*
+*[Fu et al., 2024](https://arxiv.org/abs/2402.02057)*
 
 A **draft-model-free** approach using Jacobi iteration.
 
@@ -126,7 +126,7 @@ A **draft-model-free** approach using Jacobi iteration.
 
 ## 7. DistillSpec
 
-*Zhou et al., 2024*
+*[Zhou et al., 2024](https://arxiv.org/abs/2310.08461)*
 
 **Idea:** Align the draft model's distribution to the target model's via knowledge distillation, directly maximizing acceptance rate.
 
@@ -138,7 +138,7 @@ A **draft-model-free** approach using Jacobi iteration.
 
 ## 8. SpecInfer / Tree-Based Speculative Inference
 
-*Miao et al., 2024*
+*[Miao et al., 2024](https://arxiv.org/abs/2305.09781)*
 
 **Key contribution:** Instead of a single linear draft, maintain a **tree of speculative candidates**.
 
@@ -152,7 +152,7 @@ A **draft-model-free** approach using Jacobi iteration.
 
 ## 9. Sequoia
 
-*Chen et al., 2024*
+*[Chen et al., 2024](https://arxiv.org/abs/2402.12374)*
 
 **Focus:** Optimal tree structure for speculative decoding.
 
@@ -166,7 +166,7 @@ A **draft-model-free** approach using Jacobi iteration.
 
 ## 10. REST — Retrieval-Based Speculative Decoding
 
-*He et al., 2023*
+*[He et al., 2023](https://arxiv.org/abs/2311.08252)*
 
 **Draft source:** Instead of a neural draft model, retrieve draft tokens from a **datastore** (corpus, code repository, etc.).
 
@@ -179,7 +179,7 @@ A **draft-model-free** approach using Jacobi iteration.
 
 ## 11. CLLMs — Consistency Large Language Models
 
-*Kou et al., 2024*
+*[Kou et al., 2024](https://arxiv.org/abs/2403.00835)*
 
 **Inspired by:** Consistency models in diffusion.
 
@@ -194,15 +194,15 @@ A **draft-model-free** approach using Jacobi iteration.
 
 Several methods use the **target model itself** to draft, avoiding a separate model entirely:
 
-- **Self-Speculative Decoding (Zhang et al., 2024):** Skip certain layers during drafting (early exit), then verify with full depth.
-- **LayerSkip (Elhoushi et al., 2024):** Train with early-exit loss at intermediate layers; at inference, use early layers for drafting, full model for verification.
-- **SPEED (Hooper et al., 2024):** Use a subset of attention heads as a "thin" draft model.
+- **Self-Speculative Decoding ([Zhang et al., 2024](https://arxiv.org/abs/2309.08168)):** Skip certain layers during drafting (early exit), then verify with full depth.
+- **LayerSkip ([Elhoushi et al., 2024](https://arxiv.org/abs/2404.16710)):** Train with early-exit loss at intermediate layers; at inference, use early layers for drafting, full model for verification.
+- **SPEED ([Hooper et al., 2024](https://arxiv.org/abs/2310.12072)):** Use a subset of attention heads as a "thin" draft model.
 
 **Advantage:** Zero additional memory for a draft model — crucial when the target model already saturates GPU memory. Typical speedup: 1.5-2.5x.
 
 ## 13. Online Speculative Decoding
 
-*Liu et al., 2024*
+*[Liu et al., 2024](https://arxiv.org/abs/2310.07177)*
 
 Addresses **distribution shift** — the draft model was trained on a general corpus but inference happens on a specific domain.
 
@@ -215,7 +215,7 @@ Addresses **distribution shift** — the draft model was trained on a general co
 
 ## 14. DFlash
 
-*DeepSeek, 2025 (arXiv:2602.06036)*
+*DeepSeek, 2025 ([arXiv:2602.06036](https://arxiv.org/abs/2602.06036))*
 
 **Core idea:** Replace autoregressive drafting with a **lightweight block diffusion model** that generates an entire block of draft tokens in a single parallel forward pass.
 
@@ -249,7 +249,7 @@ Addresses **distribution shift** — the draft model was trained on a general co
 
 ## 15. DSpark
 
-*DeepSeek, 2025 (arXiv:2607.05147) — deployed in production on DeepSeek-V4*
+*DeepSeek, 2025 ([arXiv:2607.05147](https://arxiv.org/abs/2607.05147)) — deployed in production on DeepSeek-V4*
 
 **Core idea:** A **semi-autoregressive (SAR)** drafter that combines DFlash's parallel backbone with a lightweight sequential module, plus a **confidence-aware adaptive scheduler** for high-concurrency serving.
 
