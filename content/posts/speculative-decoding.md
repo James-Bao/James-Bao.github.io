@@ -269,7 +269,7 @@ DSpark solves this with a two-stage design:
 - *Markov Head (default):* First-order transition bias with low-rank factorization ($r=256$), conditioning position $k$ only on the sampled token at $k-1$
 - *RNN Head:* Gated recurrent state accumulating full prefix history
 
-Combined factorized distribution: $\prod_{k=1}^{\gamma} p_k(x_k \mid x_0, x_{<k})$
+Combined factorized distribution: $\prod_{k=1}^{\gamma} p_k(x_k \mid x_0, x_{\lt k})$
 
 This preserves the parallel backbone's speed while injecting just enough sequential coherence to eliminate suffix decay.
 
