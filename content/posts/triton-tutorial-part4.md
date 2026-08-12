@@ -58,11 +58,15 @@ Given previous state $(m_{\text{prev}}, l_{\text{prev}}, \text{acc}_{\text{prev}
 $$
 m_{\text{new}} = \max(m_{\text{prev}}, \max(s))
 $$
+</div>
 
+<div>
 $$
 l_{\text{new}} = e^{m_{\text{prev}} - m_{\text{new}}} \cdot l_{\text{prev}} + \sum e^{s - m_{\text{new}}}
 $$
+</div>
 
+<div>
 $$
 \text{acc}_{\text{new}} = e^{m_{\text{prev}} - m_{\text{new}}} \cdot \text{acc}_{\text{prev}} + e^{s - m_{\text{new}}} \cdot V_{\text{tile}}
 $$
